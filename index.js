@@ -24,10 +24,14 @@ app.get('/api/hello', function(req, res) {
 app.use(express.urlencoded());
 
 app.post('/api/shorturl', (req, res, next) => {
-  if (dns.lookup(req.query.url, (err, address))) {
-    res.json({ original_url: req.body.url, short_url: 'test'});
-  } else {
-    res.json({ error: 'invalid url' })
+  const URL = require("url").URL;
+  const stringIsAValidUrl = (s) => {
+    try {
+      new URL(s);
+      res.json({ original_url: req.body.url, short_url: 'test'}); 
+    } catch (err) {
+      res.json({ error: 'invalid url' })
+    }
   };
   next();
 });
