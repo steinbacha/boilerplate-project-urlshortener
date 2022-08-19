@@ -23,7 +23,7 @@ app.get('/api/hello', function(req, res) {
 app.use(express.urlencoded());
 
 app.post('/api/shorturl', (req, res, next) => {
-  res.json({ test: 'req.body.url' });
+  res.json({ test: req.body.url });
   console.log(req.query.url);
   next();
 });
