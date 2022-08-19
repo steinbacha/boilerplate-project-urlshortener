@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const http = require('http')
 const dns = require('dns');
-const mongoose = require('mongodb');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 // Basic Configuration
