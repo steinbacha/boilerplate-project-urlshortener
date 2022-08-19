@@ -33,6 +33,7 @@ app.post('/api/shorturl', (req, res, next) => {
       res.json({ error: 'invalid url' })
     }
   };
+  stringIsAValidUrl(req.body.url);
   next();
 });
 
