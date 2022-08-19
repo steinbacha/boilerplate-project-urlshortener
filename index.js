@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const http = require('http')
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
@@ -17,6 +18,14 @@ app.get('/', function(req, res) {
 // Your first API endpoint
 app.get('/api/hello', function(req, res) {
   res.json({ greeting: 'hello API' });
+});
+
+app.use(express.urlencoded());
+
+app.post('/api/shorturl', (req, res, next) => {
+  res.json({ test: 'req.body.url' });
+  console.log(req.query.url);
+  next();
 });
 
 app.listen(port, function() {
