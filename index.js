@@ -5,7 +5,6 @@ const app = express();
 const http = require('http')
 const dns = require('dns');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
